@@ -21,6 +21,20 @@ section.built h3.caption { margin-top: 10px; }
    MOBILE Styles
 ----------------------------------------- */
 
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+
+    body {
+        background-image: url(../../images/low_contrast_linen_@2X.png);
+        background-image: -moz-radial-gradient(center, ellipse cover,  rgba(85,90,95,0) 0%, rgba(28,30,32,1) 100%), url(../../images/low_contrast_linen_@2X.png);
+        background-image: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(85,90,95,0)), color-stop(100%,rgba(28,30,32,1))), url(../../images/low_contrast_linen_@2X.png);
+        background-image: -webkit-radial-gradient(center, ellipse cover,  rgba(85,90,95,0) 0%,rgba(28,30,32,1) 100%), url(../../images/low_contrast_linen_@2X.png);
+        background-image: -o-radial-gradient(center, ellipse cover,  rgba(85,90,95,0) 0%,rgba(28,30,32,1) 100%), url(../../images/low_contrast_linen_@2X.png);
+        background-image: -ms-radial-gradient(center, ellipse cover,  rgba(85,90,95,0) 0%,rgba(28,30,32,1) 100%), url(../../images/low_contrast_linen_@2X.png);
+        background-image: radial-gradient(center, ellipse cover,  rgba(85,90,95,0) 0%,rgba(28,30,32,1) 100%), url(../../images/low_contrast_linen_@2X.png);
+    }
+
+}
+
 @media only screen and (min-device-width : 641px) and (max-device-width : 1024px) {
 
     #overview:after { content: "Press ESC or pinch OUT"; }
