@@ -1,336 +1,319 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+        <title>Kevin Xu - CS377T Application</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+        <meta name="description" content="HTML5/CSS3 Slides for CS377T">
+        <meta name="author" content="Kevin Xu">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
-		<link rel="stylesheet" href="css/main.css">
-		<link rel="stylesheet" href="css/custom.css">
-		<link rel="stylesheet" href="css/theme/apple.css" id="theme">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="css/theme/apple.css" id="theme">
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<script>
-			// If the query includes 'print-pdf' we'll use the PDF print sheet
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
+        <script>
+            // If the query includes 'print-pdf' we'll use the PDF print sheet
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
 
-	<body>
+    <body>
 
-		<div class="reveal">
+        <div class="reveal">
 
-			<!-- Used to fade in a background when a specific slide state is reached -->
-			<div class="state-background"></div>
+            <!-- Used to fade in a background when a specific slide state is reached -->
+            <div class="state-background"></div>
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
-				</section>
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>CS377T</h1>
+                    <h3>Who is Kevin Xu?</h3>
+                    <h6 class="fragment">(And why he should be in this class)</h6>
+                </section>
 
-				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
-					<p>
-						<i><small>- <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small></i>
-					</p>
+                <section>
+                    <h2>Hi there!</h2>
+                    <img src="images/imkevinxu.jpeg" alt="Kevin Xu">
+                </section>
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you run the speaker notes server.
-					</aside>
-				</section>
-
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#/2/1">down</a>.
-						</p>
-						<a href="#/2/1" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>Cornify</p>
-						<a class="test" href="http://cornify.com">
-							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
-				<section>
-					<h2>Holistic Overview</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview!
-					</p>
-				</section>
-
-				<section>
-					<h2>rvl.io</h2>
-					<p>
-						If you don't like writing slides in HTML you can use the online editor <a href="http://www.rvl.io" target="_blank">rvl.io</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Works in Mobile Safari</h2>
-					<p>
-						Try it out! You can swipe through the slides pinch your way to the overview.
-					</p>
-				</section>
-
-				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
-				<section data-markdown>
-					## Markdown support
-
-					For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-
-					<pre><code contenteditable style="margin-top: 20px;">&lt;section data-markdown&gt;
-  ## Markdown support
-
-  For those of you who like that sort of thing.
-  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-&lt;/section&gt;
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="http://lab.hakim.se/reveal-js/?transition=cube">Cube</a> -
-						<a href="http://lab.hakim.se/reveal-js/?transition=page">Page</a> -
-						<a href="http://lab.hakim.se/reveal-js/?transition=concave">Concave</a> -
-						<a href="http://lab.hakim.se/reveal-js/?transition=linear">Linear</a>
-					</p>
-				</section>
-
-				<section>
-					<h2>Themes</h2>
-					<p>
-						Reveal.js comes with a few themes built in: <br>
-						<a href="http://lab.hakim.se/reveal-js/?theme=sky">Sky</a> -
-						<a href="http://lab.hakim.se/reveal-js/?theme=beige">Beige</a> -
-						<a href="http://lab.hakim.se/reveal-js/?theme=simple">Simple</a> -
-						<a href="http://lab.hakim.se/reveal-js/">Default</a>
-					</p>
-					<p>
-						<small>
-							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-						</small>
-					</p>
-				</section>
-
-				<section>
-					<section data-state="alert">
-						<h2>Global State</h2>
-						<p>
-							Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-							will be added as a class to the document element when the slide is open. This lets you
-							apply broader style changes, like switching the background.
-						</p>
-						<a href="#/7/1" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-state="blackout">
-						<h2>"blackout"</h2>
-						<a href="#/7/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-state="soothe">
-						<h2>"soothe"</h2>
-						<a href="#/7/0" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						The nice thing about standards is that there are so many to choose from</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) ) {
-        node.className += ' roll';
-      }
-    };
-  }
+                <section>
+                    <h2>kevinxu.json</h2>
+                    <pre><code class="json">
+{
+    "name": "Kevin Xu",
+    "year": "Senior",
+    "major": "Computer Science",
+    "hobbies": ["tennis", "starcraft", "poker"],
+    "socialmedia": {
+        "twitter": "<a href="http://twitter.com/imkevinxu" target="_blank">@imkevinxu</a>",
+        "linkedin": "<a href="http://linkedin.com/in/imkevinxu" target="_blank">imkevinxu</a>",
+        "github": "<a href="https://github.com/imkevinxu" target="_blank">imkevinxu</a>"
+    },
+    "internships": {
+        "felicisventures": "Tech Fellow",
+        "designerfund": "Frontend Engineer",
+        "startupdigest": "UI Designer",
+        "tapulous": "Super Intern"
+    }
 }
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
+                    </code></pre>
+                </section>
 
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
+                <section>
+                    <h2>Why this class?</h2>
+                    <p>
+                        I've heard non-stop amazing things about <em>behavior design</em> and yourself, BJ Fogg, from my friends in the Persuasive Tech Lab and I want to learn. My goals are to:
+                    </p>
+                    <ul style="margin-top: 20px;">
+                        <li>learn behavior design</li>
+                        <li>start better habits</li>
+                        <li>build something amazing</li>
+                    </ul>
+                </section>
 
-				<section>
-					<h2>Fragmented Views</h2>
-					<p>Hit the next arrow...</p>
-					<p class="fragment">... to step through ...</p>
-					<ol>
-						<li class="fragment"><code>any type</code></li>
-						<li class="fragment"><em>of view</em></li>
-						<li class="fragment"><strong>fragments</strong></li>
-					</ol>
-				</section>
+                <section>
+                    <h2>What drives me?</h2>
+                    <p>
+                        The ability to <em>build</em> something that can make millions of peoples' lives better.
+                    </p>
+                    <p>
+                        My ultimate goal is to start my own company.
+                    </p>
+                    <img src="images/startup.png" alt="Entering Startup" id="startup">
+                </section>
 
-				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://hakim.se/experiments/html5/breakdom/" target="_blank">
-						<img width="320" height="412" src="https://s3.amazonaws.com/hakim-static/reveal-js/breakdom.png" alt="BreakDOM game screenshot">
-					</a>
-				</section>
+                <section>
+                    <section>
+                        <h2>What have I been up to?</h2>
+                        <img src="images/hackathon.png" alt="Greylock Hackathon">
+                        <h3 class="caption">5 Hackathons this summer</h3>
+                        <h2>&darr;</h2>
+                    </section>
 
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
-					<script>
-						document.getElementById('slideshare').attributeName = 'allowfullscreen';
-					</script>
-				</section>
+                    <section>
+                        <img src="images/bases.png" alt="Stanford BASES Finale">
+                        <h3 class="caption">Chief Branding Officer of BASES</h3>
+                        <h3>&darr;</h3>
+                    </section>
 
-				<section>
-					<h2>Stellar Links</h2>
-					<ul>
-						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
-						<li><a href="http://hakim.se/projects/reveal-js">Leave feedback on my site</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
-					</ul>
-				</section>
+                    <section>
+                        <a href="https://github.com/imkevinxu/django-projectbuilder" target="_blank" class="image">
+                            <img src="images/django.png" alt="Django Project Builder">
+                        </a>
+                        <h3 class="caption">Teaching a series of workshops on <a href="https://github.com/imkevinxu/django-projectbuilder" target="_blank">Django</a></h3>
+                        <h2>&uarr;</h2>
+                    </section>
+                </section>
 
-				<section>
-					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
-				</section>
-			</div>
+                <section>
+                    <h2>What have I built?</h2>
+                    <ul style="list-style-type:none">
+                        <li>
+                            <a href="http://brandseenapp.com/" target="_blank">Brandseen</a> - logo coloring game
+                        </li>
+                        <li>
+                            <a href="http://www.youtube.com/watch?v=cyniv5fnO4Y" target="_blank">WebGestures</a> - webcam kinect API
+                        </li>
+                        <li>
+                            <a href="http://grandsentral.com/" target="_blank">GrandSentral</a> - mail merge made simple
+                        </li>
+                        <li>
+                            <a href="http://designerfund.com/" target="_blank">Designer Fund</a> - new website/application
+                        </li>
+                        <li>
+                            <a href="http://classzy.projectnyan.com/" target="_blank">Classzy</a> - courserank for homework
+                        </li>
+                    </ul>
+                </section>
 
-			<!-- The navigational controls UI -->
-			<aside class="controls">
-				<a class="left" href="#">&#x25C4;</a>
-				<a class="right" href="#">&#x25BA;</a>
-				<a class="up" href="#">&#x25B2;</a>
-				<a class="down" href="#">&#x25BC;</a>
-			</aside>
+                <section>
+                    <section>
+                        <h2>Can I design?</h2>
+                        <img src="images/logo.png" alt="Kevin Xu Logo">
+                        <p>Well, I made myself a logo in 2008&hellip;</p>
+                        <p>Hopefully I've gotten a little better?</p>
+                        <h2>&darr;</h2>
+                    </section>
 
-			<!-- Presentation progress bar -->
-			<div class="progress"><span></span></div>
+                    <section>
+                        <img src="images/dfair.png" alt="Designer Fair Website">
+                    </section>
+                    <section>
+                        <img src="images/classzy.jpeg" alt="Classzy Website">
+                    </section>
+                    <section>
+                        <img src="images/heywhatsupbro.png" alt="Heywhatsupbro?">
+                    </section>
+                </section>
 
-		</div>
+                <section>
+                    <h2>How's my psychology?</h2>
+                    <div class="fragment">
+                        <img src="images/timferriss.jpeg" alt="Tim Ferriss">
+                        <p>
+                            I'm a Tim Ferriss fanboy, does that count? :D
+                        </p>
+                    </div>
+                </section>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+                <section>
+                    <h2>But actually&hellip;</h2>
+                    <p>Most of my psychology/behavior change learning has come from dozens of design blogs I read including...</p>
+                    <ul>
+                        <li>
+                            <a href="http://www.usabilitypost.com/" target="_blank">UsabilityPost</a>
+                        </li>
+                        <li>
+                            <a href="http://uxmovement.com/" target="_blank">UX Movement</a>
+                        </li>
+                        <li>
+                            <a href="http://www.zurb.com/blog/posts" target="_blank">ZURBlog</a>
+                        </li>
+                        <li>
+                            <a href="http://www.smashingmagazine.com/" target="_blank">Smashing Magazine</a>
+                        </li>
+                        <li>
+                            <a href="http://www.quora.com/User-Experience" target="_blank">Quora</a>
+                        </li>
+                    </ul>
+                </section>
 
-		<script>
+                <section data-state="random">
+                    <h2>More Random</h2>
+                    <ul>
+                        <strong>Instrument?</strong>
+                        <ul>
+                            <li>I play the Saxophone but don't have it with me</li>
+                        </ul>
+                        <div class="fragment">
+                            <strong>Siblings?</strong>
+                            <ul>
+                                <li>Oldest child with a younger sister</li>
+                            </ul>
+                        </div>
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
+                        <div class="fragment">
+                            <strong>Sport?</strong>
+                            <ul>
+                                <li>Played team basketball when I was younger</li>
+                            </ul>
+                        </div>
 
-				theme: Reveal.getQueryHash().theme || 'apple', // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/linear(2d)
+                        <div class="fragment">
+                            <strong>Quirkyness?</strong>
+                            <ul>
+                                <li>Slept 26 hours straight once.</li>
+                            </ul>
+                        </div>
+                    </ul>
+                </section>
 
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				]
-			});
+                <section>
+                    <section>
+                        <h2>Case: Stanford Alumni Behavior</h2>
+                        <img src="images/graduation.jpeg" alt="Stanford Graduation">
+                        <h3 class="caption">1. Graduation</h3>
+                        <h3>&darr;</h3>
+                    </section>
 
-		</script>
+                    <section>
+                        <img src="images/realworld.jpeg" alt="The Real World">
+                        <h3 class="caption">2. Spend some time in the "real world"</h3>
+                        <h3>&darr;</h3>
+                    </section>
 
-	</body>
+                    <section>
+                        <img src="images/memories.jpeg" alt="Stanford Cardinal Football">
+                        <h3 class="caption">3. Get reminded by call center of Stanford memories</h3>
+                        <h3>&darr;</h3>
+                    </section>
+
+                    <section>
+                        <img src="images/reunion.jpeg" alt="Stanford Reunion">
+                        <h3 class="caption">4. Attend reunions and be more reminded of benefits of donations</h3>
+                        <h3>&darr;</h3>
+                    </section>
+
+                    <section>
+                        <img src="images/money.jpeg" alt="Money">
+                        <h3 class="caption">5. Donate to Stanford!</h3>
+                        <h3><a href="#/11">&uarr;</a></h3>
+                    </section>
+                </section>
+
+                <section>
+                    <h1>THE END</h1>
+                    <p>
+                        Press <strong>ESC</strong> to see the slide overview
+                    </p>
+                    <img src="images/skydive.jpeg" alt="Skydiving Kevin Xu" id="skydive">
+                    <p>
+                        <a href="http://twitter.com/imkevinxu" target="_blank">
+                            <img src="images/twitter.png" alt="Twitter @imkevinxu" class="social">
+                        </a>
+                        <a href="http://linkedin.com/in/imkevinxu" target="_blank">
+                            <img src="images/linkedin.png" alt="Linkedin Kevin Xu" class="social">
+                        </a>
+                        <a href="https://github.com/imkevinxu" target="_blank">
+                            <img src="images/github.png" alt="Github imkevinxu" class="social">
+                        </a>
+                    </p>
+                </section>
+            </div>
+
+            <!-- The navigational controls UI -->
+            <aside class="controls">
+                <a class="left" href="#">&#x25C4;</a>
+                <a class="right" href="#">&#x25BA;</a>
+                <a class="up" href="#">&#x25B2;</a>
+                <a class="down" href="#">&#x25BC;</a>
+            </aside>
+
+            <!-- Presentation progress bar -->
+            <div class="progress"><span></span></div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+
+                theme: Reveal.getQueryHash().theme || 'apple', // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/linear(2d)
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                ]
+            });
+
+        </script>
+
+    </body>
 </html>

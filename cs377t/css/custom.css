@@ -4,6 +4,29 @@
    CUSTOM Styles
 ----------------------------------------- */
 
+.reveal code.json {
+    padding-left: 10%;
+}
+
+.reveal h3.caption {
+    line-height: 1.2;
+}
+
+.reveal a.image {
+    color: inherit;
+}
+
+.reveal img.social {
+    display: inline-block;
+    border: none;
+    background: none;
+    margin-right: 8px;
+}
+
+.random ul ul {
+    margin-bottom: .4em;
+}
+
 /* -----------------------------------------
    MEDIA Styles
 ----------------------------------------- */
