@@ -4,29 +4,84 @@
    CUSTOM Styles
 ----------------------------------------- */
 
-.reveal code.json {
-    padding-left: 10%;
-}
-
-.reveal h3.caption {
-    line-height: 1.2;
-}
-
-.reveal a.image {
-    color: inherit;
-}
-
+.reveal code.json { padding-left: 10%; }
+.reveal h3.caption { line-height: 1.2; }
+.reveal a.image { color: inherit; }
+.reveal ul#random ul { margin-bottom: .4em; }
 .reveal img.social {
     display: inline-block;
     border: none;
     background: none;
     margin-right: 8px;
 }
-
-.random ul ul {
-    margin-bottom: .4em;
-}
+section.built h3.caption { margin-top: 10px; }
+#overview:after { content: "Press ESC"; }
 
 /* -----------------------------------------
-   MEDIA Styles
+   MOBILE Styles
 ----------------------------------------- */
+
+@media only screen and (min-device-width : 641px) and (max-device-width : 1024px) {
+
+    #overview:after { content: "Press ESC or pinch OUT"; }
+
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 640px) {
+
+    .reveal section h2 { font-size: 100px; }
+
+    section.first h1 { font-size: 225px; }
+    section.first h3, h6 { font-size: 64px; }
+
+    section.picture { margin-top: -160px; }
+    section.picture h2 { font-size: 120px; }
+
+    section.code { margin-top: -225px; }
+    section.code pre { width: 100%; }
+    section.code code.json { padding: 0; }
+    section.code a { font-size: 30px; }
+
+    section.whyclass { margin-top: -120px; }
+    section.whyclass p, section.whyclass li { font-size: 44px; line-height: 1.3; }
+
+    section.drive { margin-top: -180px; }
+    section.drive p, section.drive li { font-size: 44px; line-height: 1.3; }
+
+    section.center section { margin-top: -190px; }
+    section.center h3 { font-size: 80px; }
+
+    section.built { margin-top: -220px; }
+    section.built h3 { font-size: 90px; }
+    section.built p small { font-size: 50px; }
+
+    section.design { margin-top: -100px; }
+    section.design h3 { font-size: 100px; }
+    section.design p { font-size: 46px; line-height: 1.3; }
+    section.design section.center { margin-top: -110px; }
+
+    section.psychology { margin-top: -120px; }
+    section.psychology p { font-size: 64px; }
+
+    section.actually { margin-top: -120px; }
+    section.actually p, section.actually li { font-size: 46px; }
+    section.actually li { line-height: 1.2; }
+
+    section.random { margin-top: -200px; font-size: 46px; }
+    section.random ul#random ul { padding-left: 30px; }
+
+    section.stanford  { margin-top: -120px; }
+    section.stanford section.first { margin-top: -100px; }
+    section.stanford section.reunion { margin-top: -100px; }
+    section.stanford h3 { font-size: 80px; }
+
+    section.end { margin-top: -200px; }
+    section.end h1 { font-size: 170px; }
+    section.end p { font-size: 50px; }
+    section.end img#skydive { width: 550px; }
+    section.end img.social { width: 80px; margin-right: 20px; }
+
+    a.arrow { font-size: 120px; width: 82px;}
+    #overview:after { content: "Pinch OUT"; }
+
+}

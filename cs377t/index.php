@@ -40,18 +40,18 @@
 
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
-                <section>
+                <section class="first">
                     <h1>CS377T</h1>
                     <h3>Who is Kevin Xu?</h3>
                     <h6 class="fragment">(And why he should be in this class)</h6>
                 </section>
 
-                <section>
+                <section class="picture">
                     <h2>Hi there!</h2>
                     <img src="images/imkevinxu.jpeg" alt="Kevin Xu">
                 </section>
 
-                <section>
+                <section class="code">
                     <h2>kevinxu.json</h2>
                     <pre><code class="json">
 {
@@ -74,7 +74,7 @@
                     </code></pre>
                 </section>
 
-                <section>
+                <section class="whyclass">
                     <h2>Why this class?</h2>
                     <p>
                         I've heard non-stop amazing things about <em>behavior design</em> and yourself, BJ Fogg, from my friends in the Persuasive Tech Lab and I want to learn. My goals are to:
@@ -86,7 +86,7 @@
                     </ul>
                 </section>
 
-                <section>
+                <section class="drive">
                     <h2>What drives me?</h2>
                     <p>
                         The ability to <em>build</em> something that can make millions of peoples' lives better.
@@ -94,10 +94,10 @@
                     <p>
                         My ultimate goal is to start my own company.
                     </p>
-                    <img src="images/startup.png" alt="Entering Startup" id="startup">
+                    <img src="images/startup.png" alt="Entering Startup">
                 </section>
 
-                <section>
+                <section class="center">
                     <section>
                         <h2>What have I been up to?</h2>
                         <img src="images/hackathon.png" alt="Greylock Hackathon">
@@ -108,7 +108,7 @@
                     <section>
                         <img src="images/bases.png" alt="Stanford BASES Finale">
                         <h3 class="caption">Chief Branding Officer of BASES</h3>
-                        <h3>&darr;</h3>
+                        <h2>&darr;</h2>
                     </section>
 
                     <section>
@@ -120,60 +120,89 @@
                     </section>
                 </section>
 
-                <section>
-                    <h2>What have I built?</h2>
-                    <ul style="list-style-type:none">
-                        <li>
-                            <a href="http://brandseenapp.com/" target="_blank">Brandseen</a> - logo coloring game
-                        </li>
-                        <li>
-                            <a href="http://www.youtube.com/watch?v=cyniv5fnO4Y" target="_blank">WebGestures</a> - webcam kinect API
-                        </li>
-                        <li>
-                            <a href="http://grandsentral.com/" target="_blank">GrandSentral</a> - mail merge made simple
-                        </li>
-                        <li>
-                            <a href="http://designerfund.com/" target="_blank">Designer Fund</a> - new website/application
-                        </li>
-                        <li>
-                            <a href="http://classzy.projectnyan.com/" target="_blank">Classzy</a> - courserank for homework
-                        </li>
-                    </ul>
-                </section>
-
-                <section>
+                <section class="built">
                     <section>
-                        <h2>Can I design?</h2>
-                        <img src="images/logo.png" alt="Kevin Xu Logo">
-                        <p>Well, I made myself a logo in 2008&hellip;</p>
-                        <p>Hopefully I've gotten a little better?</p>
+                        <h2>What have I built?</h2>
+                        <img src="images/brandseen.png" alt="Brandseen - Logo Coloring Game">
+                        <h3 class="caption">
+                            <a href="http://brandseenapp.com/" target="_blank">Brandseen</a> - logo brand coloring game
+                        </h3>
+                        <p style="margin-top: -20px;">
+                            <small>Over 300,000 levels played</small>
+                        </p>
                         <h2>&darr;</h2>
                     </section>
 
                     <section>
+                        <img src="images/grandsentral.png" alt="GrandSentral - Mail Merge Made Simple">
+                        <h3 class="caption">
+                            <a href="http://grandsentral.com/" target="_blank">GrandSentral</a> - mail merge made simple
+                        </h3>
+                        <p style="margin-top: -20px;">
+                            <small>3000+ emails sent</small>
+                        </p>
+                        <h2>&darr;</h2>
+                    </section>
+
+                    <section>
+                        <iframe width="500" height="375" src="http://www.youtube.com/embed/cyniv5fnO4Y" frameborder="0" allowfullscreen></iframe>
+                        <h3 class="caption">
+                            <a href="http://www.youtube.com/watch?v=cyniv5fnO4Y" target="_blank">WebGestures</a> - webcam Kinect API
+                        </h3>
+                        <p style="margin-top: -20px;">
+                            <small>Top 20 @ AngelHack</small>
+                        </p>
+                        <h2>&darr;</h2>
+                    </section>
+
+                    <section>
+                        <img src="images/dfund.png" alt="Designer Fund Website">
+                        <h3 class="caption">
+                            <a href="http://designerfund.com/" target="_blank">Designer Fund</a> - website/application
+                        </h3>
+                        <h2>&darr;</h2>
+                    </section>
+
+                    <section>
+                        <h2 style="margin-top: 50px;">And more projects to come!</h2>
+                        <h1><a href="#/6" class="arrow">&uarr;</a></h1>
+                    </section>
+
+                </section>
+
+                <section class="design">
+                    <section>
+                        <h2>Can I design?</h2>
+                        <img src="images/logo.png" alt="Kevin Xu Logo">
+                        <p style="margin-top: 20px;">Well, I made myself a logo in 2008&hellip;</p>
+                        <p>Hopefully I've gotten a little better?</p>
+                        <h2>&darr;</h2>
+                    </section>
+
+                    <section class="center">
                         <img src="images/dfair.png" alt="Designer Fair Website">
                     </section>
-                    <section>
+                    <section class="center">
                         <img src="images/classzy.jpeg" alt="Classzy Website">
                     </section>
-                    <section>
+                    <section class="center">
                         <img src="images/heywhatsupbro.png" alt="Heywhatsupbro?">
                     </section>
                 </section>
 
-                <section>
+                <section class="psychology">
                     <h2>How's my psychology?</h2>
                     <div class="fragment">
                         <img src="images/timferriss.jpeg" alt="Tim Ferriss">
-                        <p>
+                        <p style="margin-top: 20px;">
                             I'm a Tim Ferriss fanboy, does that count? :D
                         </p>
                     </div>
                 </section>
 
-                <section>
+                <section class="actually" class="actually">
                     <h2>But actually&hellip;</h2>
-                    <p>Most of my psychology/behavior change learning has come from dozens of design blogs I read including...</p>
+                    <p>Most of my psychology/behavior change learning has come from dozens of design blogs I read including&hellip;</p>
                     <ul>
                         <li>
                             <a href="http://www.usabilitypost.com/" target="_blank">UsabilityPost</a>
@@ -193,9 +222,9 @@
                     </ul>
                 </section>
 
-                <section data-state="random">
+                <section class="random">
                     <h2>More Random</h2>
-                    <ul>
+                    <ul id="random">
                         <strong>Instrument?</strong>
                         <ul>
                             <li>I play the Saxophone but don't have it with me</li>
@@ -217,14 +246,14 @@
                         <div class="fragment">
                             <strong>Quirkyness?</strong>
                             <ul>
-                                <li>Slept 26 hours straight once.</li>
+                                <li>Slept 26 hours straight once</li>
                             </ul>
                         </div>
                     </ul>
                 </section>
 
-                <section>
-                    <section>
+                <section class="stanford">
+                    <section class="first">
                         <h2>Case: Stanford Alumni Behavior</h2>
                         <img src="images/graduation.jpeg" alt="Stanford Graduation">
                         <h3 class="caption">1. Graduation</h3>
@@ -243,7 +272,7 @@
                         <h3>&darr;</h3>
                     </section>
 
-                    <section>
+                    <section class="reunion">
                         <img src="images/reunion.jpeg" alt="Stanford Reunion">
                         <h3 class="caption">4. Attend reunions and be more reminded of benefits of donations</h3>
                         <h3>&darr;</h3>
@@ -252,14 +281,14 @@
                     <section>
                         <img src="images/money.jpeg" alt="Money">
                         <h3 class="caption">5. Donate to Stanford!</h3>
-                        <h3><a href="#/11">&uarr;</a></h3>
+                        <h3><a href="#/11" class="arrow">&uarr;</a></h3>
                     </section>
                 </section>
 
-                <section>
+                <section class="end">
                     <h1>THE END</h1>
                     <p>
-                        Press <strong>ESC</strong> to see the slide overview
+                        <strong id="overview"></strong> to see slide overview
                     </p>
                     <img src="images/skydive.jpeg" alt="Skydiving Kevin Xu" id="skydive">
                     <p>
