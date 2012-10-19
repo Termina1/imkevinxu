@@ -42,6 +42,37 @@
 					<h1>Prototyping in Code</h1>
 					<h3>And other goodies</h3>
 					<img src="images/code.jpeg" alt="" width="500px">
+					<p>
+                        <a href="http://imkevinxu.com/prototyping">http://imkevinxu.com/prototyping</a>
+					</p>
+				</section>
+
+				<section>
+					<h1>Why?</h1>
+					<ul style="font-size:1.2em; line-height:1.4em">
+						<li class="fragment">High fidelity</li>
+						<li class="fragment">Forces you to simplify</li>
+						<li class="fragment">In context</li>
+						<li class="fragment">Responsive</li>
+						<li class="fragment">One step away from interaction</li>
+						<li class="fragment">Easier to manipulate</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Life Without Photoshop</h2>
+					<a href="http://www.quora.com/Joel-Lewenstein/Joels-Posts/Life-Without-Photoshop" target="_blank">http://www.quora.com/Joel-Lewenstein/Joels-Posts/Life-Without-Photoshop</a>
+					<img src="images/quora.png" alt="">
+				</section>
+
+				<section>
+					<h1>Tips</h1>
+					<ul style="font-size:1.5em; line-height:1.7em">
+						<li class="fragment">Use a Framework</li>
+						<li class="fragment">Add some background</li>
+						<li class="fragment">Add a font</li>
+						<li class="fragment">Add a cat</li>
+					</ul>
 				</section>
 
 				<section>
@@ -73,6 +104,46 @@
 					<h2>GrandSentral</h2>
 					<a href="http://grandsentral.com/" target="_blank">http://grandsentral.com/</a>
 					<img src="images/grandsentral.png" alt="">
+				</section>
+
+				<section>
+					<h2>Resources</h2>
+					<a href="http://subtlepatterns.com/" target="_blank">http://subtlepatterns.com/</a>
+					<img src="images/subtle.png" alt="">
+				</section>
+
+				<section>
+					<h2>Fonts</h2>
+					<a href="http://www.google.com/webfonts" target="_blank">Google Web Fonts</a>
+					<p class="fragment">Open Sans</p>
+
+					<a href="https://typekit.com/fonts" target="_blank">Typekit</a>
+					<p class="fragment">Proxima Nova</p>
+					<p class="fragment">Museo Slab</p>
+				</section>
+
+				<section>
+					<h2>Placeholders</h2>
+					<a href="http://placekitten.com/" target="_blank">http://placekitten.com/</a>
+					<img src="images/kitty.png" alt="">
+				</section>
+
+				<section>
+					<section>
+						<h2>Free PSDs</h2>
+						<a href="http://www.uiparade.com/" target="_blank">http://www.uiparade.com/</a>
+						<img src="images/psd2.png" alt="">
+					</section>
+					<section>
+						<h2>Free PSDs</h2>
+						<a href="http://365psd.com/" target="_blank">http://365psd.com/</a>
+						<img src="images/psd.png" alt="">
+					</section>
+				</section>
+
+				<section>
+					<h2>Learn to make the Webkit Inspector your bitch</h2>
+					<img src="images/webkit.png" alt="">
 				</section>
 
                 <section class="end">
