@@ -49,6 +49,21 @@
 
 				<section>
 					<h1>Why?</h1>
+					<div style="font-size:1.2em; line-height:1.4em">
+						<p class="fragment">
+							You're trying to learn from your users
+						</p>
+						<p class="fragment">
+							A picture is worth a thousand words
+						</p>
+						<p class="fragment">
+							So a working prototype is worth a <s>million</s> <strong>billion</strong> words
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h1>Benefits</h1>
 					<ul style="font-size:1.2em; line-height:1.4em">
 						<li class="fragment">High fidelity</li>
 						<li class="fragment">Forces you to simplify</li>
@@ -71,7 +86,7 @@
 						<li class="fragment">Use a Framework</li>
 						<li class="fragment">Add some background</li>
 						<li class="fragment">Add a font</li>
-						<li class="fragment">Add a cat</li>
+						<li class="fragment">Add a cat <span class="fragment">. . . or 10</span></li>
 					</ul>
 				</section>
 
@@ -144,6 +159,17 @@
 				<section>
 					<h2>Learn to make the Webkit Inspector your bitch</h2>
 					<img src="images/webkit.png" alt="">
+				</section>
+
+				<section>
+					<h1>Summary</h1>
+
+					<ul style="font-size:1.2em; line-height:1.4em">
+						<li class="fragment">Prototyping in code forces you to simplify</li>
+						<li class="fragment">Prototype is immediately responsive</li>
+						<li class="fragment">Prototype is interactive, more engaging</li>
+						<li class="fragment">Prototype is halfway done</li>
+					</ul>
 				</section>
 
                 <section class="end">
