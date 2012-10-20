@@ -49,16 +49,16 @@
 
 				<section>
 					<h1>Why?</h1>
-					<div style="font-size:1.2em; line-height:1.4em">
+					<div style="font-size:1.3em; line-height:1.7em">
 						<p class="fragment">
 							Goal: You're trying to learn from your users
 						</p>
-						<p class="fragment">
+						<li class="fragment">
 							A picture is worth a thousand words
-						</p>
-						<p class="fragment">
-							So a working prototype is worth a <s>million</s> <strong>billion</strong> words
-						</p>
+						</li>
+						<li class="fragment">
+							So a working prototype must be worth a <s>million</s> <strong>billion</strong> words, right?
+						</li>
 					</div>
 				</section>
 
