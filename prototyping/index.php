@@ -65,7 +65,6 @@
 				<section>
 					<h1>Benefits</h1>
 					<ul style="font-size:1.2em; line-height:1.4em">
-						<li class="fragment">High fidelity</li>
 						<li class="fragment">Forces you to simplify</li>
 						<li class="fragment">In context</li>
 						<li class="fragment">Responsive</li>
