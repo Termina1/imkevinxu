@@ -51,7 +51,7 @@
 					<h1>Why?</h1>
 					<div style="font-size:1.2em; line-height:1.4em">
 						<p class="fragment">
-							You're trying to learn from your users
+							Goal: You're trying to learn from your users
 						</p>
 						<p class="fragment">
 							A picture is worth a thousand words
@@ -168,6 +168,7 @@
 						<li class="fragment">Prototype is immediately responsive</li>
 						<li class="fragment">Prototype is interactive, more engaging</li>
 						<li class="fragment">Prototype is halfway done</li>
+						<li class="fragment">Tons of resources to move fast</li>
 					</ul>
 				</section>
 
