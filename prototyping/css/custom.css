@@ -10,3 +10,23 @@
     background: none;
     margin-right: 8px;
 }
+
+.reveal footer {
+    border-top: 1px solid #999;
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 0.8em;
+    color: #BBB;
+}
+
+.reveal footer a {
+    color: inherit !important;
+}
+
+.reveal footer .twitter {
+    float: left;
+}
+
+.reveal footer .url {
+    float: right;
+}

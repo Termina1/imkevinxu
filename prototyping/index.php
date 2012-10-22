@@ -55,10 +55,11 @@
 				<section>
 					<h1>Prototyping in Code</h1>
 					<h3>And other goodies</h3>
-					<img src="images/code.jpeg" alt="" width="500px">
-					<p>
-                        <a href="http://imkevinxu.com/prototyping">http://imkevinxu.com/prototyping</a>
-					</p>
+					<img src="images/code.jpeg" alt="" width="500">
+					<footer>
+						<a href="http://twitter.com/imkevinxu" target="_blank" class="twitter">@imkevinxu</a>
+						<a href="http://imkevinxu.com/prototyping" class="url">http://imkevinxu.com/prototyping</a>
+					</footer>
 				</section>
 
 				<section>
@@ -119,7 +120,7 @@
 				<section>
 					<h2>AuctionBase</h2>
 					<a href="http://stanford.edu/~kevinx/cgi-bin/auctionbase/" target="_blank">http://stanford.edu/~kevinx/cgi-bin/auctionbase/</a>
-					<img src="images/auctionbase2.png" alt="">
+					<img src="images/auctionbase.png" alt="">
 				</section>
 
 				<section>
@@ -160,12 +161,13 @@
 					<section>
 						<h2>Free PSDs</h2>
 						<a href="http://www.uiparade.com/" target="_blank">http://www.uiparade.com/</a>
-						<img src="images/psd2.png" alt="">
+						<img src="images/psd.png" alt="">
+                        <h3>&darr;</h3>
 					</section>
 					<section>
 						<h2>Free PSDs</h2>
 						<a href="http://365psd.com/" target="_blank">http://365psd.com/</a>
-						<img src="images/psd.png" alt="">
+						<img src="images/psd2.png" alt="">
 					</section>
 				</section>
 
@@ -182,7 +184,7 @@
 						<li class="fragment">Prototype is immediately responsive</li>
 						<li class="fragment">Prototype is interactive, more engaging</li>
 						<li class="fragment">Prototype is halfway done</li>
-						<li class="fragment">Tons of resources to move fast</li>
+						<li class="fragment">There are tons of resources to help you move fast</li>
 					</ul>
 				</section>
 
@@ -190,9 +192,6 @@
                     <h1>Questions?</h1>
                     <p>
                         <strong id="overview">Press ESC</strong> to see slide overview
-                    </p>
-                    <p>
-                        <a href="http://imkevinxu.com/prototyping">http://imkevinxu.com/prototyping</a>
                     </p>
                     <img src="images/skydive.jpeg" alt="Skydiving Kevin Xu" id="skydive">
                     <p>
@@ -206,6 +205,10 @@
                             <img src="images/github.png" alt="Github imkevinxu" class="social">
                         </a>
                     </p>
+					<footer>
+						<a href="http://twitter.com/imkevinxu" target="_blank" class="twitter">@imkevinxu</a>
+						<a href="http://imkevinxu.com/prototyping" class="url">http://imkevinxu.com/prototyping</a>
+					</footer>
                 </section>
 
 			</div>
