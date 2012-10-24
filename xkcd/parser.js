@@ -2,6 +2,47 @@
 // Original Author: Charlie Guo https://github.com/charlierguo
 // Customized by: Kevin Xu https://github.com/imkevinxu
 
+Math.chisq = function (x, n) {
+    if( x > 1000 | n > 1000 ) { 
+        var q = NORM( ( Math.pow( x / n, 1/3 ) + 2 / ( 9 * n ) - 1 ) / Math.sqrt( 2 / ( 9 * n ) ) ) / 2; 
+        if ( x > n ) {
+            return q
+        } else {
+            return 1 - q;
+        } 
+    }
+    var p = Math.exp( -0.5 * x ); 
+    if( ( n % 2 ) == 1 ) { 
+        p = p * Math.sqrt( 2 * x / Math.PI );
+    }
+    var k = n; 
+    while( k >= 2 ) { 
+        p = p * x / k; 
+        k = k - 2;
+    }
+    var t = p; 
+    var a = n; 
+    while( t > 1e-15*p) { 
+        a = a + 2; 
+        t = t * x / a; 
+        p = p + t 
+    }
+    return 1 - p;
+}
+
+Math.norm = function(z) {
+    var q = z * z;
+    if( Math.abs(z) > 7 ) {
+        return ( 1 - 1 / q + 3 / ( q * q ) ) * Math.exp( -q / 2 ) / ( Math.abs(z) * Math.sqrt(Math.PI / 2 ) );
+    } else {
+        return Math.chisq( q, 1 ); 
+    }
+}
+
+Math.gauss = function(z) { return ( ( z < 0) ? ( ( z < -10 ) ? 0 : Math.chisq(z * z, 1 ) / 2 ) : ( ( z > 10 ) ? 1 : 1 - Math.chisq( z * z, 1 ) / 2 ) ) }
+
+Math.erf = function(z) { return ( ( z < 0 ) ? ( 2 * Math.gauss( Math.sqrt(2) * z) - 1 ) : ( 1 - 2 * Math.gauss( -Math.sqrt(2) * z ) ) ) }
+
 var string_eval = function(input_string) {
 
     var output_string = "";
@@ -46,7 +87,7 @@ var string_eval = function(input_string) {
 
 function splitStringIntoPieces(input_string) {
     var operators = "+-*/^x";
-    var functions = ["sin(", "cos(", "tan(", "abs(", "pow(", "sqrt(", "log("];
+    var functions = ["sin(", "cos(", "tan(", "abs(", "pow(", "sqrt(", "log(", "erf(", "gauss(", "norm("];
     var inputs = input_string.replace(/^\s\s*/, '').replace(/\s\s*$/, '').toLowerCase();
     for (var i = 0; i < operators.length; i++) {
         inputs = inputs.split(operators[i]).join(" " + operators[i] + " ");
@@ -97,7 +138,7 @@ function splitStringIntoPieces(input_string) {
 }
 
 function beginsWithFunction(str) {
-    var functions = ["sin(", "cos(", "tan(", "abs(", "pow(", "sqrt(", "log("];
+    var functions = ["sin(", "cos(", "tan(", "abs(", "pow(", "sqrt(", "log(", "erf(", "gauss(", "norm("];
     for (var j = 0; j < functions.length; j++) {
         if (str.indexOf(functions[j]) == 0) {
             return true;
