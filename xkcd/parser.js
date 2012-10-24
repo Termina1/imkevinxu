@@ -19,7 +19,9 @@ var string_eval = function(input_string) {
         if (beginsWithFunction(string_pieces[i])) {
             output_string += "Math." + string_pieces[i];
         } else if (string_pieces[i] === "^") {
-            output_string += "Math.pow(" + string_pieces[i-1] + "," + string_pieces[i+1] + ")";
+            if (i+1 < string_pieces.length) {
+                output_string += "Math.pow(" + string_pieces[i-1] + "," + string_pieces[i+1] + ")";
+            }
         } else {
             if (i < string_pieces.length && string_pieces[i+1] === "^"
                 || i > 0 && string_pieces[i-1] === "^") {
@@ -58,7 +60,7 @@ function splitStringIntoPieces(input_string) {
             i--;
         }
     }
-    for (var i = 0; i < inputs_array.length; i++) {
+    for (var i = 0; i < inputs_array.length-1; i++) {
         var count = 0;
         for (var j = 0; j < functions.length; j++) {
             if (inputs_array[i].indexOf(functions[j]) >= 0) {
@@ -83,7 +85,7 @@ function splitStringIntoPieces(input_string) {
             inputs_array[i] = "+(-" + inputs_array[i+1] + ")";
             inputs_array.splice(i+1);
         } else if (inputs_array[i] === "-" && operators.indexOf(inputs_array[i-1]) >= 0) {
-            inputs_array[i] = "(-" + inputs_array[i+1] + ")";
+            inputs_array[i] = "+(-" + inputs_array[i+1] + ")";
             inputs_array.splice(i+1);
         } else if (operators.indexOf(inputs_array[i]) < 0 && functions.indexOf(inputs_array[i]) < 0 && inputs_array[i+1] === "x") {
             inputs_array.splice(i+1, 0, "*");

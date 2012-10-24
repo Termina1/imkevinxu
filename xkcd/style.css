@@ -85,12 +85,12 @@ div.input {
 
 label {
     display: inline-block;
-    width: 100px;
+    width: 120px;
 }
 
 input {
     display: inline-block;
-    width: 150px;
+    width: 135px;
     height: 24px;
     font-size: 18px;
     font-family: "xkcd";
@@ -101,13 +101,13 @@ input {
 label.slider {
     top: -9px;
     position: relative;
-    padding-right: 21px;
+    padding-left: 30px;
 }
 
 #slider {
-    width: 449px;
+    width: 429px;
     top: 0px;
-    right: 10px;
+    right: -4px;
     height: 24px;
     display: inline-block;
     -moz-border-radius: 0px;
@@ -119,10 +119,35 @@ label.slider {
 #slider a {
     height: 36px;
     width: 30px;
+    border: 1px solid #999;
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
     -khtml-border-radius: 0px;
     border-radius: 0px
+}
+
+span#more {
+    width: 24px;
+    height: 24px;
+    right: -8px;
+    top: -7px;
+    display: inline-block;
+    position: relative;
+    border: 1px solid #999;
+    font-size: 20px;
+    font-family: "Helvetica", "Arial";
+    text-align: center;
+}
+
+span#more:hover, span#more:active {
+    color: #2A85E8;
+    border: 1px solid #2A85E8;
+    cursor: pointer;
+}
+
+.equation2, .equation3,
+.equation4, .equation5 {
+    display: none;
 }
 
 text.title {

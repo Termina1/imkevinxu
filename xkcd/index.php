@@ -81,6 +81,33 @@
             <div class="clear"></div>
             <label for="slider" class="slider">Refinement</label>
             <div id="slider"></div>
+            <span id="more">+</span>
+
+            <div class="left">
+                <div class="input">
+                    <label for="equation2" class="equation2">Equation 2</label>
+                    <input type="text" id="equation2" class="equation2" placeholder="x^2" />
+                </div>
+
+                <div class="input">
+                    <label for="equation4" class="equation4">Equation 4</label>
+                    <input type="text" id="equation4" class="equation4" placeholder="1/tan(x)" />
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="input">
+                    <label for="equation3" class="equation3">Equation 3</label>
+                    <input type="text" id="equation3" class="equation3" placeholder="sqrt(x*10)" />
+                </div>
+
+                <div class="input">
+                    <label for="equation5" class="equation5">Equation 5</label>
+                    <input type="text" id="equation5" class="equation5" placeholder="abs(x)" />
+                </div>
+            </div>
+
+            <div class="clear"></div>
         </form>
     </div>
 
@@ -125,11 +152,27 @@
             $('input').on('textchange', function () {
                 drawGraph();
             });
+            $('#more').on('click', function() {
+                if ($(".equation4").css("display") === "inline-block") $(".equation5").fadeIn();
+                if ($(".equation3").css("display") === "inline-block") $(".equation4").fadeIn();
+                if ($(".equation2").css("display") === "inline-block") $(".equation3").fadeIn();
+                $(".equation2").fadeIn();
+            });
 
             function drawGraph() {
-                $("#plot").empty();
+                var plot = xkcdplot();
+                drawGraphEquation(plot, '#equation');
+                if ($(".equation2").css("display") === "inline-block") drawGraphEquation(plot, '#equation2', 'red');
+                if ($(".equation3").css("display") === "inline-block") drawGraphEquation(plot, '#equation3', 'green');
+                if ($(".equation4").css("display") === "inline-block") drawGraphEquation(plot, '#equation4', 'purple');
+                if ($(".equation5").css("display") === "inline-block") drawGraphEquation(plot, '#equation5', 'gray');
+            }
 
-                var expression = string_eval($('#equation').val()),
+            function drawGraphEquation(plot, equation, color) {
+                $("#plot").empty();
+                if (!color) color = "steelBlue";
+
+                var expression = string_eval($(equation).val()),
                     xmin = parseInt($('#xmin').val()),
                     xmax = parseInt($('#xmax').val()),
                     N = $("#slider").slider( "option", "value");
@@ -169,9 +212,8 @@
                         }
                     }
 
-                    var plot = xkcdplot();
                     plot("#plot", parameters);
-                    plot.plot(data);
+                    plot.plot(data, {stroke: color});
                     plot.draw();
 
                     for (var i = xmin; i < xmax; i++) {
