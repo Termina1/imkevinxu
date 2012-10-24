@@ -228,6 +228,7 @@
                     console.log("[Graph Equation] " + $('#equation').val());
                     console.log("[JS Expression] " + expression);
                 } else {
+                    $("#plot").append("<h1>Sorry, invalid function</h1>");
                     console.log("[Invalid Function] " + $('#equation').val());
                 }
             }
