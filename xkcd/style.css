@@ -122,9 +122,8 @@ footer {
     float: left;
 }
 
-.social .twitter-share-button {
-    width: 86px !important;
-    height: 53px !important;
+.fb-like span:first-child {
+    height: 24px !important;
 }
 
 .credit {

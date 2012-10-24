@@ -56,7 +56,7 @@
             <div class="left">
                 <div class="input">
                     <label for="equation">Equation</label>
-                    <input type="text" id="equation" placeholder="x * sin(x)" />
+                    <input type="text" id="equation" placeholder="x*sin(x)" />
                 </div>
 
                 <div class="input">
@@ -73,17 +73,17 @@
             <div class="right">
                 <div class="input">
                     <label for="title">Title</label>
-                    <input type="text" id="title" placeholder="Awesome Graph" value="Awesome Graph" />
+                    <input type="text" id="title" placeholder="Your Graph" value="Your Graph" />
                 </div>
 
                 <div class="input">
                     <label for="xlabel">X-label</label>
-                    <input type="text" id="xlabel" placeholder="Awesome Graph" value="Awesome Graph" />
+                    <input type="text" id="xlabel" placeholder="X" value="X" />
                 </div>
 
                 <div class="input">
                     <label for="ylabel">Y-label</label>
-                    <input type="text" id="ylabel" placeholder="Awesome Graph" value="Awesome Graph" />
+                    <input type="text" id="ylabel" placeholder="Y" value="Y" />
                 </div>
             </div>
 
@@ -97,9 +97,9 @@
     <footer class="container">
 
         <div class="social">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://imkevinxu.com/xkcd/" data-via="imkevinxu">Tweet</a>
+            <div class="fb-like" data-href="http://imkevinxu.com/xkcd/" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-text="Create your own XKCD-style Graphs instantly" data-via="imkevinxu">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-            <div class="fb-like" data-href="http://imkevinxu.com/xkcd/" data-send="false" data-width="300" data-show-faces="true"></div>
         </div>
 
         <div class="credit">
@@ -118,257 +118,56 @@
     <script src="http://d3js.org/d3.v2.min.js"></script>
     <script src="jquery.textchange.min.js"></script>
     <script src="xkcd.js"></script>
-
+    <script src="examples.js"></script>
+    <script src="parser.js"></script>
     <script type="text/javascript">
 
         $(document).ready(function() {
             $('#equation').focus();
 
-            $('input').bind('textchange', function (event, previousText) {
+            $('input').on('textchange', function (event) {
                 $("#plot").empty();
 
                 var expression = string_eval($('#equation').val()),
                     xmin = parseInt($('#xmin').val()),
                     xmax = parseInt($('#xmax').val());
 
-                if (expression != "'Invalid function.'" && expression.indexOf("x") >= 0 && !isNaN(xmin) && !isNaN(xmax)) {
-                    function f(x) {
-                        return eval(expression.split("x").join(x));
+                if (expression != "'Invalid function'" && !isNaN(xmin) && !isNaN(xmax)) {
+
+                    var data = d3.range(xmin, xmax, (xmax - xmin) / 100).map(function (d) {
+                            return {x: d, y: eval(expression.split("x").join(d))};
+                        });
+
+                    var parameters = {  title: $('#title').val(),
+                                        xlabel: $('#xlabel').val(),
+                                        ylabel: $('#ylabel').val(),
+                                        xlim: [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16] };
+
+                    if (expression.indexOf("x") < 0) {
+                        if (eval(expression) < -10) {
+                            parameters["ylim"] = [eval(expression), 10];
+                        } else if (eval(expression) > 10) {
+                            parameters["ylim"] = [-10, eval(expression)];
+                        } else {
+                            parameters["ylim"] = [-10, 10];
+                        }
                     }
-                    var N = 100,
-                        xlim = [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16],
-                        data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-                            return {x: d, y: f(d)};
-                        }),
-                        parameters = {  title: $('#title').val(),
-                                        xlabel: "X",
-                                        ylabel: "Y",
-                                        xlim: xlim },
-                        plot = xkcdplot();
+
+                    var plot = xkcdplot();
                     plot("#plot", parameters);
                     plot.plot(data);
                     plot.draw();
+
+                    console.log("Graphing: " + $('#equation').val());
+                    console.log("Expression: " + expression);
                 } else {
-                    console.log("Invalid function.");
+                    console.log("Invalid function: " + $('#equation').val());
                 }
 
             });
 
         });
 
-        var string_eval = function(input_string) {
-            var operators = "+-*/^"
-            //var operator_regex = /\+|-|\*|\/|^/;
-            var functions = ["sin(", "cos(", "tan(", "log(", "abs(", "sqrt"]; //brainfuck ಠ_ಠ
-            input_string = input_string.split(" ").join("").toLowerCase();
-            for (var i = 0; i < operators.length; i++) {
-                input_string = input_string.replace(operators[i], " " + operators[i] + " ");
-            }
-            var string_pieces = input_string.split(" ");
-            var output_string = "";
-            for (var i = 0; i < string_pieces.length; i++) {
-                if (functions.indexOf(string_pieces[i].substr(0, 4)) >= 0) {
-                    output_string += ("Math." + string_pieces[i])
-                } else if (string_pieces[i] === "^") {
-                    output_string += "Math.pow(" + string_pieces[i-1] + "," + string_pieces[i+1] + ")";
-                } else {
-                    if (i < string_pieces.length && string_pieces[i+1] === "^"
-                        || i > 0 && string_pieces[i-1] === "^") {
-                        // do nothing
-                    } else {
-                        output_string += string_pieces[i];
-                    }
-                }
-            }
-
-            try {
-                var test_output = output_string.split("x").join("1");
-                if (typeof(eval(test_output)) !== "number") {
-                    return "'Invalid function.'";
-                }
-            } catch (err) {
-                return "'Invalid function.'";
-            }
-
-            return output_string;
-        }
-
-    </script>
-
-    <script type="text/javascript">
-        // Example Graphs
-
-        function f1 (x) {
-            return Math.exp(-0.5 * (x - 1) * (x - 1)) * Math.sin(x + 0.2) + 0.05;
-        }
-        function f2 (x) {
-            return 0.5 * Math.cos(x - 0.5) + 0.1;
-        }
-        var xmin = -1.0,
-            xmax = 7,
-            N = 100,
-            xlim = [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16],
-            data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-                return {x: d, y: f1(d)};
-            }),
-            data2 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-                return {x: d, y: f2(d)};
-            }),
-            parameters = {  title: "Example",
-                            xlabel: "Yumminess",
-                            ylabel: "Velociraptor Speed",
-                            xlim: xlim },
-            plot = xkcdplot();
-        plot("#examples", parameters);
-        plot.plot(data);
-        plot.plot(data2, {stroke: "red"});
-        plot.draw();
-
-
-
-        function f3 (x) {
-            return Math.cos(x);
-        }
-        function f4 (x) {
-            return Math.sin(x);
-        }
-        var xmin = -1.0,
-            xmax = 14,
-            N = 100,
-            xlim = [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16],
-            data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-                return {x: d, y: f3(d)};
-            }),
-            data2 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-                return {x: d, y: f4(d)};
-            }),
-            parameters = {  title: "Sin(x) and Cos(x)",
-                            xlabel: "X",
-                            ylabel: "Y",
-                            xlim: xlim,
-                            ylim: [-1.1, 1.1] },
-            plot = xkcdplot();
-        plot("#examples", parameters);
-        plot.plot(data);
-        plot.plot(data2, {stroke: "red"});
-        plot.draw();
-
-
-
-        function f5 (x) {
-            return Math.pow(x, 2);
-        }
-        function f6 (x) {
-            return -Math.pow(x, 2);
-        }
-        function f7 (x) {
-            return 2 * x;
-        }
-        var xmin = -10,
-            xmax = 10,
-            N = 100,
-            xlim = [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16],
-            data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-                return {x: d, y: f5(d)};
-            }),
-            data2 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-                return {x: d, y: f6(d)};
-            }),
-            data3 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-                return {x: d, y: f7(d)};
-            }),
-            parameters = {  title: "X^2, X^-2, and 2X",
-                            xlabel: "Lava Levels",
-                            ylabel: "Heat",
-                            xlim: xlim,
-                            ylim: [-100, 100] };
-            plot = xkcdplot();
-        plot("#examples", parameters);
-        plot.plot(data);
-        plot.plot(data2, {stroke: "red"});
-        plot.plot(data3, {stroke: "green"});
-        plot.draw();
-
-
-
-        function f8 (x) {
-            return x * Math.cos(x);
-        }
-        var xmin = -100,
-            xmax = 100,
-            N = 200,
-            xlim = [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16],
-            data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-                return {x: d, y: f8(d)};
-            }),
-            parameters = {  title: "X * cos(X)",
-                            xlabel: "Chaos",
-                            ylabel: "Insanity",
-                            xlim: xlim };
-            plot = xkcdplot();
-        plot("#examples", parameters);
-        plot.plot(data);
-        plot.draw();
-
-
-
-        function f9 (x) {
-            return 10;
-        }
-        function f10 (x) {
-            return 9.8;
-        }
-        function f11 (x) {
-            if (x >= 8 && x < 9) return 0;
-            return 10.2;
-        }
-        var xmin = 0,
-            xmax = 10,
-            N = 100,
-            xlim = [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16],
-            data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-                return {x: d, y: f9(d)};
-            }),
-            data2 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-                return {x: d, y: f10(d)};
-            }),
-            data3 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-                return {x: d, y: f11(d)};
-            }),
-            parameters = {  title: "Amazon EC2 Uptime",
-                            xlabel: "Time",
-                            ylabel: "Uptime",
-                            xlim: xlim,
-                            ylim: [-1, 10.5]};
-            plot = xkcdplot();
-        plot("#examples", parameters);
-        plot.plot(data);
-        plot.plot(data2, {stroke: "red"});
-        plot.plot(data3, {stroke: "green"});
-        plot.draw();
-        $('<h3>Inspired by <a href="https://twitter.com/samratjp" target="_blank">@samratjp</a></h3>').insertAfter($("#examples h1")[4]);
-
-
-        function f12 (x) {
-            return Math.pow(x, 2);
-        }
-        var xmin = 0,
-            xmax = 10,
-            N = 100,
-            xlim = [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16],
-            data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-                return {x: d, y: f12(d)};
-            }),
-            parameters = {  title: "Ruby on Rails vs Brogrammers",
-                            xlabel: "RoR Popularity",
-                            ylabel: "# of Brogrammers",
-                            xlim: xlim,
-                            ylim: [-10, 10.5]};
-            plot = xkcdplot();
-        plot("#examples", parameters);
-        plot.plot(data, {stroke: "red"});
-        plot.draw();
-        $('<h3>Inspired by <a href="https://twitter.com/samratjp" target="_blank">@samratjp</a></h3>').insertAfter($("#examples h1")[5]);
 
     </script>
 

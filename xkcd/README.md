@@ -6,7 +6,7 @@ Original xkcd.js script created by [Dan Foreman-Mackey](http://dan.iel.fm/xkcd/)
 ### [See Example Graphs](http://imkevinxu.com/xkcd/)
 
 * sin(x) and cos(x)
-* x^2, x^-2, and 2x
+* x^2, x^-2, 2x, and 80
 * x * cos(x)
 * Amazon EC2 Uptime
 * Ruby on Rails vs Brogrammers

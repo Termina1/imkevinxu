@@ -1,5 +1,5 @@
 // Original Author: Dan Foreman-Mackey http://dan.iel.fm/xkcd/
-// Customized by: Kevin Xu http://imkevinxu.com
+// Customized by: Kevin Xu https://github.com/imkevinxu
 
 function xkcdplot() {
 
@@ -121,9 +121,12 @@ function xkcdplot() {
         xlim = xlim || xl;
         xlim[0] = Math.min(xlim[0], xl[0]);
         xlim[1] = Math.max(xlim[1], xl[1]);
+
         ylim = ylim || yl;
         ylim[0] = Math.min(ylim[0], yl[0]);
         ylim[1] = Math.max(ylim[1], yl[1]);
+        ylim[0] = ylim[0] - (ylim[1] - ylim[0]) / 16;
+        ylim[1] = ylim[1] + (ylim[1] - ylim[0]) / 16;
 
         // Add the plotting function.
         elements.push({
