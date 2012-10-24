@@ -162,10 +162,10 @@
             function drawGraph() {
                 var plot = xkcdplot();
                 drawGraphEquation(plot, '#equation');
-                if ($(".equation2").css("display") === "inline-block") drawGraphEquation(plot, '#equation2', 'red');
-                if ($(".equation3").css("display") === "inline-block") drawGraphEquation(plot, '#equation3', 'green');
-                if ($(".equation4").css("display") === "inline-block") drawGraphEquation(plot, '#equation4', 'purple');
-                if ($(".equation5").css("display") === "inline-block") drawGraphEquation(plot, '#equation5', 'gray');
+                if ($("#equation2").val()) drawGraphEquation(plot, '#equation2', 'red');
+                if ($("#equation3").val()) drawGraphEquation(plot, '#equation3', 'green');
+                if ($("#equation4").val()) drawGraphEquation(plot, '#equation4', 'purple');
+                if ($("#equation5").val()) drawGraphEquation(plot, '#equation5', 'gray');
             }
 
             function drawGraphEquation(plot, equation, color) {
