@@ -88,7 +88,7 @@
 
         .social .twitter-share-button {
             width: 86px !important;
-            height: 24px !important;
+            height: 53px !important;
         }
 
         .credit {
@@ -134,7 +134,7 @@
         <div class="social">
             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://imkevinxu.com/xkcd/" data-via="imkevinxu">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-            <div class="fb-like" data-href="http://imkevinxu.com/xkcd/" data-send="false" data-width="200" data-show-faces="true"></div>
+            <div class="fb-like" data-href="http://imkevinxu.com/xkcd/" data-send="false" data-width="300" data-show-faces="true"></div>
         </div>
 
         <div class="credit">
