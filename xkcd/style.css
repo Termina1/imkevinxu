@@ -46,6 +46,10 @@ a:hover {
     text-align: center;
 }
 
+#plot {
+    margin-top: 50px;
+}
+
 #examples {
     border: 1px solid #999;
     margin-top: 0;
@@ -91,6 +95,34 @@ input {
     font-size: 18px;
     font-family: "xkcd";
     padding: 2px 5px;
+    border: 1px solid #999;
+}
+
+label.slider {
+    top: -9px;
+    position: relative;
+    padding-right: 21px;
+}
+
+#slider {
+    width: 449px;
+    top: 0px;
+    right: 10px;
+    height: 24px;
+    display: inline-block;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -khtml-border-radius: 0px;
+    border-radius: 0px
+}
+
+#slider a {
+    height: 36px;
+    width: 30px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -khtml-border-radius: 0px;
+    border-radius: 0px
 }
 
 text.title {

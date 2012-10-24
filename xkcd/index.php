@@ -4,6 +4,7 @@
 <head>
     <title>Create your own XKCD-style Graphs</title>
 
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="style.css" />
 
     <!-- Facebook Meta Data -->
@@ -88,6 +89,8 @@
             </div>
 
             <div class="clear"></div>
+            <label for="slider" class="slider">Refinement</label>
+            <div id="slider"></div>
         </form>
     </div>
 
@@ -115,6 +118,7 @@
     </a>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
     <script src="http://d3js.org/d3.v2.min.js"></script>
     <script src="jquery.textchange.min.js"></script>
     <script src="xkcd.js"></script>
@@ -124,17 +128,25 @@
 
         $(document).ready(function() {
             $('#equation').focus();
+            $("#slider").slider({ min: 1, max: 250, value: 100 });
+            $("#slider").bind("slide", function() {
+                drawGraph();
+            });
+            $('input').on('textchange', function () {
+                drawGraph();
+            });
 
-            $('input').on('textchange', function (event) {
+            function drawGraph() {
                 $("#plot").empty();
 
                 var expression = string_eval($('#equation').val()),
                     xmin = parseInt($('#xmin').val()),
-                    xmax = parseInt($('#xmax').val());
+                    xmax = parseInt($('#xmax').val()),
+                    N = $("#slider").slider( "option", "value");
 
                 if (expression != "'Invalid function'" && !isNaN(xmin) && !isNaN(xmax)) {
 
-                    var data = d3.range(xmin, xmax, (xmax - xmin) / 100).map(function (d) {
+                    var data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
                             return {x: d, y: eval(expression.split("x").join(d))};
                         });
 
@@ -163,8 +175,7 @@
                 } else {
                     console.log("Invalid function: " + $('#equation').val());
                 }
-
-            });
+            }
 
         });
 

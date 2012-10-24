@@ -17,7 +17,7 @@ $(document).ready(function() {
         data2 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
             return {x: d, y: f2(d)};
         }),
-        parameters = {  title: "Example",
+        parameters = {  title: "Examples",
                         xlabel: "Yumminess",
                         ylabel: "Velociraptor Speed",
                         xlim: [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16] },
