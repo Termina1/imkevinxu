@@ -62,7 +62,8 @@
 
     </footer>
 
-    <a href="https://github.com/imkevinxu/imkevinxu/tree/master/xkcd"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/imkevinxu/imkevinxu/tree/master/xkcd" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="http://d3js.org/d3.v2.min.js"></script>
@@ -124,6 +125,62 @@
         plot.plot(data2, {stroke: "red"});
         plot.draw();
 
+
+
+        function f5 (x) {
+            return Math.pow(x, 2);
+        }
+        function f6 (x) {
+            return -Math.pow(x, 2);
+        }
+        function f7 (x) {
+            return 2 * x;
+        }
+        var xmin = -10,
+            xmax = 10,
+            N = 100,
+            xlim = [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16],
+            data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
+                return {x: d, y: f5(d)};
+            }),
+            data2 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
+                return {x: d, y: f6(d)};
+            }),
+            data3 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
+                return {x: d, y: f7(d)};
+            }),
+            parameters = {  title: "X^2, X^-2, and 2X",
+                            xlabel: "Lava Levels",
+                            ylabel: "Heat",
+                            xlim: xlim,
+                            ylim: [-100, 100] };
+            plot = xkcdplot();
+        plot("#plot", parameters);
+        plot.plot(data);
+        plot.plot(data2, {stroke: "red"});
+        plot.plot(data3, {stroke: "green"});
+        plot.draw();
+
+
+
+        function f8 (x) {
+            return x * Math.cos(x);
+        }
+        var xmin = -100,
+            xmax = 100,
+            N = 200,
+            xlim = [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16],
+            data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
+                return {x: d, y: f8(d)};
+            }),
+            parameters = {  title: "X * cos(X)",
+                            xlabel: "# of birds and bees",
+                            ylabel: "Insanity",
+                            xlim: xlim };
+            plot = xkcdplot();
+        plot("#plot", parameters);
+        plot.plot(data);
+        plot.draw();
     </script>
 
 </body>
