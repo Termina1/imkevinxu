@@ -2,14 +2,14 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>XKCD-style Graphs</title>
+    <title>Create your own XKCD-style Graphs</title>
 
     <link rel="stylesheet" href="style.css" />
 
     <!-- Facebook Meta Data -->
     <meta property="og:url" content="http://imkevinxu.com/xkcd" />
-    <meta property="og:title" content="XKCD-style Graphs" />
-    <meta property="og:description" content="XKCD-style Graphs created in Javascript D3" />
+    <meta property="og:title" content="Create your own XKCD-style Graphs" />
+    <meta property="og:description" content="Instant XKCD-style Graphs created in Javascript D3 for your enjoyment" />
     <meta property="og:image" content="http://imkevinxu.com/xkcd/graph.png" />
     <meta property="og:type" content="website" />
 
@@ -39,12 +39,44 @@
 
     <div class="container">
 
-        <h1>XKCD-style Graphs</h1>
-        <h2>Credit to <a href="http://dan.iel.fm/xkcd/" target="_blank">Dan Foreman-Mackey</a></h2>
+        <h1>Create your own XKCD-style Graphs</h1>
+        <h2>Major credit to <a href="http://dan.iel.fm/xkcd/" target="_blank">Dan Foreman-Mackey</a></h2>
 
+        <form>
+            <div class="input">
+                <label for="equation">Equation</label>
+                <input type="text" id="equation" placeholder="x * sin(x)" />
+            </div>
+
+            <div class="input">
+                <label for="xmin">X-minimum</label>
+                <input type="text" id="xmin" placeholder="-10" value="-10" />
+            </div>
+
+            <div class="input">
+                <label for="xmax">X-maximum</label>
+                <input type="text" id="xmax" placeholder="10" value="10" />
+            </div>
+
+            <div class="input">
+                <label for="title">Title</label>
+                <input type="text" id="title" placeholder="Awesome Graph" value="Awesome Graph" />
+            </div>
+
+            <div class="input">
+                <label for="xlabel">X-label</label>
+                <input type="text" id="xlabel" placeholder="Awesome Graph" value="Awesome Graph" />
+            </div>
+
+            <div class="input">
+                <label for="ylabel">Y-label</label>
+                <input type="text" id="ylabel" placeholder="Awesome Graph" value="Awesome Graph" />
+            </div>
+        </form>
     </div>
 
     <div id="plot"></div>
+    <div id="examples"></div>
 
     <footer class="container">
 
@@ -63,13 +95,92 @@
     </footer>
 
     <a href="https://github.com/imkevinxu/imkevinxu/tree/master/xkcd" target="_blank">
-        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+    </a>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="http://d3js.org/d3.v2.min.js"></script>
+    <script src="jquery.textchange.min.js"></script>
     <script src="xkcd.js"></script>
 
-    <script>
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+            $('input').bind('textchange', function (event, previousText) {
+                $("#plot").empty();
+
+                var expression = string_eval($('#equation').val()),
+                    xmin = parseInt($('#xmin').val()),
+                    xmax = parseInt($('#xmax').val());
+
+                if (expression != "'Invalid function.'" && expression.indexOf("x") >= 0 && !isNaN(xmin) && !isNaN(xmax)) {
+                    function f(x) {
+                        return eval(expression.split("x").join(x));
+                    }
+                    var N = 100,
+                        xlim = [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16],
+                        data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
+                            return {x: d, y: f(d)};
+                        }),
+                        parameters = {  title: $('#title').val(),
+                                        xlabel: "X",
+                                        ylabel: "Y",
+                                        xlim: xlim },
+                        plot = xkcdplot();
+                    plot("#plot", parameters);
+                    plot.plot(data);
+                    plot.draw();
+                } else {
+                    console.log("Invalid function.");
+                }
+
+            });
+
+        });
+
+        var string_eval = function(input_string) {
+            var operators = "+-*/^"
+            //var operator_regex = /\+|-|\*|\/|^/;
+            var functions = ["sin(", "cos(", "tan(", "log(", "sqrt"]; //brainfuck ಠ_ಠ
+            input_string = input_string.split(" ").join("").toLowerCase();
+            for (var i = 0; i < operators.length; i++) {
+                input_string = input_string.replace(operators[i], " " + operators[i] + " ");
+            }
+            var string_pieces = input_string.split(" ");
+            var output_string = "";
+            for (var i = 0; i < string_pieces.length; i++) {
+                if (functions.indexOf(string_pieces[i].substr(0, 4)) >= 0) {
+                    output_string += ("Math." + string_pieces[i])
+                } else if (string_pieces[i] === "^") {
+                    output_string += "Math.pow(" + string_pieces[i-1] + "," + string_pieces[i+1] + ")";
+                } else {
+                    if (i < string_pieces.length && string_pieces[i+1] === "^"
+                        || i > 0 && string_pieces[i-1] === "^") {
+                        // do nothing
+                    } else {
+                        output_string += string_pieces[i];
+                    }
+                }
+            }
+
+            try {
+                var test_output = output_string.split("x").join("1");
+                if (typeof(eval(test_output)) !== "number") {
+                    return "'Invalid function.'";
+                }
+            } catch (err) {
+                return "'Invalid function.'";
+            }
+
+            return output_string;
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        // Example Graphs
+
         function f1 (x) {
             return Math.exp(-0.5 * (x - 1) * (x - 1)) * Math.sin(x + 0.2) + 0.05;
         }
@@ -91,7 +202,7 @@
                             ylabel: "Velociraptor Speed",
                             xlim: xlim },
             plot = xkcdplot();
-        plot("#plot", parameters);
+        plot("#examples", parameters);
         plot.plot(data);
         plot.plot(data2, {stroke: "red"});
         plot.draw();
@@ -114,13 +225,13 @@
             data2 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
                 return {x: d, y: f4(d)};
             }),
-            parameters = {  title: "Sin and Cosine",
+            parameters = {  title: "Sin(x) and Cos(x)",
                             xlabel: "X",
                             ylabel: "Y",
                             xlim: xlim,
                             ylim: [-1.1, 1.1] },
             plot = xkcdplot();
-        plot("#plot", parameters);
+        plot("#examples", parameters);
         plot.plot(data);
         plot.plot(data2, {stroke: "red"});
         plot.draw();
@@ -155,7 +266,7 @@
                             xlim: xlim,
                             ylim: [-100, 100] };
             plot = xkcdplot();
-        plot("#plot", parameters);
+        plot("#examples", parameters);
         plot.plot(data);
         plot.plot(data2, {stroke: "red"});
         plot.plot(data3, {stroke: "green"});
@@ -174,11 +285,11 @@
                 return {x: d, y: f8(d)};
             }),
             parameters = {  title: "X * cos(X)",
-                            xlabel: "# of birds and bees",
+                            xlabel: "Chaos",
                             ylabel: "Insanity",
                             xlim: xlim };
             plot = xkcdplot();
-        plot("#plot", parameters);
+        plot("#examples", parameters);
         plot.plot(data);
         plot.draw();
     </script>
