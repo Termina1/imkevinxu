@@ -21,7 +21,6 @@
             font-family: "xkcd", sans-serif;
             font-size: 16px;
             color: #333;
-            text-align: center;
         }
 
         a {
@@ -36,11 +35,16 @@
         .container {
             width: 700px;
             margin: 20px auto;
+            text-align: center;
         }
 
         #plot {
             width: 700px;
             margin: 70px auto;
+        }
+
+        #plot h1 {
+            text-align: center;
         }
 
         #plot h1:nth-child(n+2) {
@@ -72,6 +76,24 @@
             stroke: white;
             stroke-width: 6px;
         }
+
+        footer {
+            display: block;
+            height: 50px;
+        }
+
+        .social {
+            float: left;
+        }
+
+        .social .twitter-share-button {
+            width: 86px !important;
+            height: 24px !important;
+        }
+
+        .credit {
+            float: right;
+        }
     </style>
 
     <script type="text/javascript">
@@ -85,6 +107,15 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
     </script>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=407882832614060";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
 </head>
 <body>
@@ -100,9 +131,17 @@
 
     <footer class="container">
 
-        <a href="https://twitter.com/charlierguo" target="_blank">@charlierguo</a>
-        &nbsp;
-        <a href="http://twitter.com/imkevinxu" target="_blank">@imkevinxu</a>
+        <div class="social">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://imkevinxu.com/xkcd/" data-via="imkevinxu">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            <div class="fb-like" data-href="http://imkevinxu.com/xkcd/" data-send="false" data-width="200" data-show-faces="true"></div>
+        </div>
+
+        <div class="credit">
+            <a href="https://twitter.com/charlierguo" target="_blank">@charlierguo</a>
+            &nbsp;
+            <a href="http://twitter.com/imkevinxu" target="_blank">@imkevinxu</a>
+        </div>
 
     </footer>
 
