@@ -1,17 +1,12 @@
-XKCD Graphs in D3
-=================
+[Create your own XKCD-style Graphs](http://imkevinxu.com/xkcd/)
+===============================================================
 
-Originally created by [Dan Foreman-Mackey](http://dan.iel.fm/xkcd/)
+Original xkcd.js script created by [Dan Foreman-Mackey](http://dan.iel.fm/xkcd/). Graph creation UI by [Kevin Xu](https://github.com/imkevinxu) and [Charlie Guo](https://github.com/charlierguo).
 
-[See Example Graphs](http://imkevinxu.com/xkcd/)
-============================================
+### [See Example Graphs](http://imkevinxu.com/xkcd/)
 
-Customized by [Kevin Xu](https://github.com/imkevinxu) and [Charlie Guo](https://github.com/charlierguo)
-
-### Example Graphs
-
-* Example
-* Sin(x) and Cos(x)
-* X^2, X^-2, and 2X
-* X * cos(X)
+* sin(x) and cos(x)
+* x^2, x^-2, and 2x
+* x * cos(x)
 * Amazon EC2 Uptime
+* Ruby on Rails vs Brogrammers
