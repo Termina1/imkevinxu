@@ -30,8 +30,6 @@ var string_eval = function(input_string) {
         }
     }
 
-    console.log("out" + output_string);
-
     try {
         var test_output = output_string.split("x").join("1");
         if (typeof(eval(test_output)) !== "number") {
@@ -68,7 +66,6 @@ function splitStringIntoPieces(input_string) {
             inputs_array[i] = "(-" + inputs_array[i+1] + ")";
             inputs_array.splice(i+1);
         } else if (operators.indexOf(inputs_array[i]) < 0 && functions.indexOf(inputs_array[i]) < 0 && inputs_array[i+1] === "x") {
-            console.log(inputs_array);
             inputs_array.splice(i+1, 0, "*");
             i+=2;
         }

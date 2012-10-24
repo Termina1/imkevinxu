@@ -43,15 +43,6 @@
         <h1>Create your own XKCD-style Graphs</h1>
         <h2>Major credit to <a href="http://dan.iel.fm/xkcd/" target="_blank">Dan Foreman-Mackey</a></h2>
 
-        <!--
-
-        negative numbers
-        negative domain
-        error messages for log/sqrt, x^-2, x^2.5, x/0, 1/sinx
-
-        multiple graphs
-        -->
-
         <form>
             <div class="left">
                 <div class="input">
@@ -147,15 +138,15 @@
 
                     function f(d) {
                         expression = expression.split("-x").join(-d);
-                        return eval(expression.split("x").join(d));
-                    }
-
-                    for (var i = xmin; i < xmax; i++) {
-                        value = f(i);
-                        if (value === NaN || value === Infinity) {
-                            $("#plot").append("<h1>Sorry, equation is invalid somewhere along the domain you chose.</h1>");
-                            $("#plot").append("<h1>Please choose a different domain.</h1>");
-                            return;
+                        var result = eval(expression.split("x").join(d));
+                        if (isNaN(result)) {
+                            return 0;
+                        } else if (result === -Infinity) {
+                            return -25;
+                        } else if (result === Infinity) {
+                            return 25;
+                        } else {
+                            return result;
                         }
                     }
 
@@ -182,6 +173,15 @@
                     plot("#plot", parameters);
                     plot.plot(data);
                     plot.draw();
+
+                    for (var i = xmin; i < xmax; i++) {
+                        expression = expression.split("-x").join(-i);
+                        var result = eval(expression.split("x").join(i));
+                        if (isNaN(result) || result === Infinity) {
+                            $("#plot").append("<h1>Some part of the equation is invalid along the domain you chose</h1>");
+                            break;
+                        }
+                    }
 
                     console.log("Graphing: " + $('#equation').val());
                     console.log("Expression: " + expression);
