@@ -2,7 +2,14 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>XKCD Graphs in D3</title>
+    <title>XKCD-style Graphs</title>
+
+    <!-- Facebook Meta Data -->
+    <meta property="og:url" content="http://imkevinxu.com/xkcd" />
+    <meta property="og:title" content="XKCD-style Graphs" />
+    <meta property="og:description" content="XKCD-style Graphs created in Javascript D3" />
+    <meta property="og:image" content="http://imkevinxu.com/xkcd/graph.png" />
+    <meta property="og:type" content="website" />
 
     <style>
         @font-face {
