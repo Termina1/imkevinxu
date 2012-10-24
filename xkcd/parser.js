@@ -59,6 +59,26 @@ function splitStringIntoPieces(input_string) {
         }
     }
     for (var i = 0; i < inputs_array.length; i++) {
+        var count = 0;
+        for (var j = 0; j < functions.length; j++) {
+            if (inputs_array[i].indexOf(functions[j]) >= 0) {
+                count++;
+            }
+        }
+        if (count >= 2) {
+            var fragments = inputs_array[i].split("(");
+            for (var j = 0; j < fragments.length; j++) {
+                fragments[j] += "(";
+                if (functions.indexOf(fragments[j]) < 0) {
+                    fragments.splice(j);
+                }
+            }
+            inputs_array[i] = fragments[0];
+            for (var j = 1; j < fragments.length; j++) {
+                inputs_array.splice(i+j, 0, fragments[j]);
+            }
+        }
+
         if (inputs_array[i] === "-" && inputs_array[i+1] === "x") {
             inputs_array[i] = "+(-" + inputs_array[i+1] + ")";
             inputs_array.splice(i+1);
@@ -70,6 +90,7 @@ function splitStringIntoPieces(input_string) {
             i+=2;
         }
     }
+
     return inputs_array;
 }
 

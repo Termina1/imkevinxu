@@ -137,8 +137,8 @@
                 if (expression != "'Invalid function'" && !isNaN(xmin) && !isNaN(xmax) && xmin < xmax) {
 
                     function f(d) {
-                        expression = expression.split("-x").join(-d);
-                        var result = eval(expression.split("x").join(d));
+                        current_expression = expression.split("-x").join(-d);
+                        var result = eval(current_expression.split("x").join(d));
                         if (isNaN(result)) {
                             return 0;
                         } else if (result === -Infinity) {
@@ -175,18 +175,18 @@
                     plot.draw();
 
                     for (var i = xmin; i < xmax; i++) {
-                        expression = expression.split("-x").join(-i);
-                        var result = eval(expression.split("x").join(i));
+                        current_expression = expression.split("-x").join(-i);
+                        var result = eval(current_expression.split("x").join(i));
                         if (isNaN(result) || result === Infinity) {
                             $("#plot").append("<h1>Some part of the equation is invalid along the domain you chose</h1>");
                             break;
                         }
                     }
 
-                    console.log("Graphing: " + $('#equation').val());
-                    console.log("Expression: " + expression);
+                    console.log("[Graph Equation] " + $('#equation').val());
+                    console.log("[JS Expression] " + expression);
                 } else {
-                    console.log("Invalid function: " + $('#equation').val());
+                    console.log("[Invalid Function] " + $('#equation').val());
                 }
             }
 
