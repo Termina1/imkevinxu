@@ -1,3 +1,6 @@
+// Original Author: Dan Foreman-Mackey http://dan.iel.fm/xkcd/
+// Customized by: Kevin Xu http://imkevinxu.com
+
 function xkcdplot() {
 
     // Default parameters.
