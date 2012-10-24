@@ -4,97 +4,14 @@
 <head>
     <title>XKCD-style Graphs</title>
 
+    <link rel="stylesheet" href="style.css" />
+
     <!-- Facebook Meta Data -->
     <meta property="og:url" content="http://imkevinxu.com/xkcd" />
     <meta property="og:title" content="XKCD-style Graphs" />
     <meta property="og:description" content="XKCD-style Graphs created in Javascript D3" />
     <meta property="og:image" content="http://imkevinxu.com/xkcd/graph.png" />
     <meta property="og:type" content="website" />
-
-    <style>
-        @font-face {
-            font-family: "xkcd";
-            src: url('http://antiyawn.com/uploads/Humor-Sans.ttf');
-        }
-
-        body {
-            font-family: "xkcd", sans-serif;
-            font-size: 16px;
-            color: #333;
-        }
-
-        a {
-            text-decoration: none;
-            color: steelblue;
-        }
-
-        a:hover {
-            color: #0E5C9E;
-        }
-
-        .container {
-            width: 700px;
-            margin: 20px auto;
-            text-align: center;
-        }
-
-        #plot {
-            width: 700px;
-            margin: 70px auto;
-        }
-
-        #plot h1 {
-            text-align: center;
-        }
-
-        #plot h1:nth-child(n+2) {
-            margin-top: 120px;
-        }
-
-        p {
-            margin: 10px 0 20px;
-            font-size: 20px;
-            line-height: 1.5em;
-        }
-
-        text.title {
-            font-size: 20px;
-        }
-
-        path {
-            fill: none;
-            stroke-width: 2.5px;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        path.axis {
-            stroke: black;
-        }
-
-        path.bgline {
-            stroke: white;
-            stroke-width: 6px;
-        }
-
-        footer {
-            display: block;
-            height: 50px;
-        }
-
-        .social {
-            float: left;
-        }
-
-        .social .twitter-share-button {
-            width: 86px !important;
-            height: 53px !important;
-        }
-
-        .credit {
-            float: right;
-        }
-    </style>
 
     <script type="text/javascript">
         var _gaq = _gaq || [];

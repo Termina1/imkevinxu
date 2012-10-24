@@ -13,7 +13,7 @@ function xkcdplot() {
         magnitude = 0.003,
         xlabel = "Time of Day",
         ylabel = "Awesomeness",
-        title = "The most important graph ever made",
+        title = "The Awesome Graph",
         xlim,
         ylim;
 
