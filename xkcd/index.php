@@ -43,15 +43,14 @@
         <h1>Create your own XKCD-style Graphs</h1>
         <h2>Major credit to <a href="http://dan.iel.fm/xkcd/" target="_blank">Dan Foreman-Mackey</a></h2>
 
-        <!-- 100x
-        sin(x*2)
-        x^2.5
-        x^x
-        ln
-        e
+        <!--
+
         negative numbers
         negative domain
-        x^-2 -->
+        error messages for log/sqrt, x^-2, x^2.5, x/0, 1/sinx
+
+        multiple graphs
+        -->
 
         <form>
             <div class="left">
@@ -129,7 +128,7 @@
         $(document).ready(function() {
             $('#equation').focus();
             $("#slider").slider({ min: 1, max: 250, value: 100 });
-            $("#slider").bind("slide", function() {
+            $("#slider").on("slide", function() {
                 drawGraph();
             });
             $('input').on('textchange', function () {
@@ -144,10 +143,24 @@
                     xmax = parseInt($('#xmax').val()),
                     N = $("#slider").slider( "option", "value");
 
-                if (expression != "'Invalid function'" && !isNaN(xmin) && !isNaN(xmax)) {
+                if (expression != "'Invalid function'" && !isNaN(xmin) && !isNaN(xmax) && xmin < xmax) {
+
+                    function f(d) {
+                        expression = expression.split("-x").join(-d);
+                        return eval(expression.split("x").join(d));
+                    }
+
+                    for (var i = xmin; i < xmax; i++) {
+                        value = f(i);
+                        if (value === NaN || value === Infinity) {
+                            $("#plot").append("<h1>Sorry, equation is invalid somewhere along the domain you chose.</h1>");
+                            $("#plot").append("<h1>Please choose a different domain.</h1>");
+                            return;
+                        }
+                    }
 
                     var data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-                            return {x: d, y: eval(expression.split("x").join(d))};
+                            return {x: d, y: f(d)};
                         });
 
                     var parameters = {  title: $('#title').val(),
