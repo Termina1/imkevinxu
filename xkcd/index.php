@@ -42,36 +42,52 @@
         <h1>Create your own XKCD-style Graphs</h1>
         <h2>Major credit to <a href="http://dan.iel.fm/xkcd/" target="_blank">Dan Foreman-Mackey</a></h2>
 
+        <!-- 100x
+        sin(x*2)
+        x^2.5
+        x^x
+        ln
+        e
+        negative numbers
+        negative domain
+        x^-2 -->
+
         <form>
-            <div class="input">
-                <label for="equation">Equation</label>
-                <input type="text" id="equation" placeholder="x * sin(x)" />
+            <div class="left">
+                <div class="input">
+                    <label for="equation">Equation</label>
+                    <input type="text" id="equation" placeholder="x * sin(x)" />
+                </div>
+
+                <div class="input">
+                    <label for="xmin">X-minimum</label>
+                    <input type="text" id="xmin" placeholder="-10" value="-10" />
+                </div>
+
+                <div class="input">
+                    <label for="xmax">X-maximum</label>
+                    <input type="text" id="xmax" placeholder="10" value="10" />
+                </div>
             </div>
 
-            <div class="input">
-                <label for="xmin">X-minimum</label>
-                <input type="text" id="xmin" placeholder="-10" value="-10" />
+            <div class="right">
+                <div class="input">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" placeholder="Awesome Graph" value="Awesome Graph" />
+                </div>
+
+                <div class="input">
+                    <label for="xlabel">X-label</label>
+                    <input type="text" id="xlabel" placeholder="Awesome Graph" value="Awesome Graph" />
+                </div>
+
+                <div class="input">
+                    <label for="ylabel">Y-label</label>
+                    <input type="text" id="ylabel" placeholder="Awesome Graph" value="Awesome Graph" />
+                </div>
             </div>
 
-            <div class="input">
-                <label for="xmax">X-maximum</label>
-                <input type="text" id="xmax" placeholder="10" value="10" />
-            </div>
-
-            <div class="input">
-                <label for="title">Title</label>
-                <input type="text" id="title" placeholder="Awesome Graph" value="Awesome Graph" />
-            </div>
-
-            <div class="input">
-                <label for="xlabel">X-label</label>
-                <input type="text" id="xlabel" placeholder="Awesome Graph" value="Awesome Graph" />
-            </div>
-
-            <div class="input">
-                <label for="ylabel">Y-label</label>
-                <input type="text" id="ylabel" placeholder="Awesome Graph" value="Awesome Graph" />
-            </div>
+            <div class="clear"></div>
         </form>
     </div>
 
@@ -106,6 +122,7 @@
     <script type="text/javascript">
 
         $(document).ready(function() {
+            $('#equation').focus();
 
             $('input').bind('textchange', function (event, previousText) {
                 $("#plot").empty();
@@ -142,7 +159,7 @@
         var string_eval = function(input_string) {
             var operators = "+-*/^"
             //var operator_regex = /\+|-|\*|\/|^/;
-            var functions = ["sin(", "cos(", "tan(", "log(", "sqrt"]; //brainfuck ಠ_ಠ
+            var functions = ["sin(", "cos(", "tan(", "log(", "abs(", "sqrt"]; //brainfuck ಠ_ಠ
             input_string = input_string.split(" ").join("").toLowerCase();
             for (var i = 0; i < operators.length; i++) {
                 input_string = input_string.replace(operators[i], " " + operators[i] + " ");
@@ -292,6 +309,67 @@
         plot("#examples", parameters);
         plot.plot(data);
         plot.draw();
+
+
+
+        function f9 (x) {
+            return 10;
+        }
+        function f10 (x) {
+            return 9.8;
+        }
+        function f11 (x) {
+            if (x >= 8 && x < 9) return 0;
+            return 10.2;
+        }
+        var xmin = 0,
+            xmax = 10,
+            N = 100,
+            xlim = [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16],
+            data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
+                return {x: d, y: f9(d)};
+            }),
+            data2 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
+                return {x: d, y: f10(d)};
+            }),
+            data3 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
+                return {x: d, y: f11(d)};
+            }),
+            parameters = {  title: "Amazon EC2 Uptime",
+                            xlabel: "Time",
+                            ylabel: "Uptime",
+                            xlim: xlim,
+                            ylim: [-1, 10.5]};
+            plot = xkcdplot();
+        plot("#examples", parameters);
+        plot.plot(data);
+        plot.plot(data2, {stroke: "red"});
+        plot.plot(data3, {stroke: "green"});
+        plot.draw();
+        $('<h3>Inspired by <a href="https://twitter.com/samratjp" target="_blank">@samratjp</a></h3>').insertAfter($("#examples h1")[4]);
+
+
+        function f12 (x) {
+            return Math.pow(x, 2);
+        }
+        var xmin = 0,
+            xmax = 10,
+            N = 100,
+            xlim = [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16],
+            data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
+                return {x: d, y: f12(d)};
+            }),
+            parameters = {  title: "Ruby on Rails vs Brogrammers",
+                            xlabel: "RoR Popularity",
+                            ylabel: "# of Brogrammers",
+                            xlim: xlim,
+                            ylim: [-10, 10.5]};
+            plot = xkcdplot();
+        plot("#examples", parameters);
+        plot.plot(data, {stroke: "red"});
+        plot.draw();
+        $('<h3>Inspired by <a href="https://twitter.com/samratjp" target="_blank">@samratjp</a></h3>').insertAfter($("#examples h1")[5]);
+
     </script>
 
 </body>
